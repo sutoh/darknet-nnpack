@@ -63,7 +63,7 @@ endif
 ifeq ($(NNPACK), 1)
 COMMON+= -DNNPACK
 CFLAGS+= -DNNPACK
-LDFLAGS+= -lnnpack -lpthreadpool
+LDFLAGS+= -lnnpack -lpthreadpool -lcpuinfo -lclog
 endif
 
 ifeq ($(ARM_NEON), 1)

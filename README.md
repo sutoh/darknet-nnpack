@@ -30,6 +30,8 @@ $NINJA_PATH/ninja
 sudo cp -a lib/* /usr/lib/
 sudo cp include/nnpack.h /usr/include/
 sudo cp deps/pthreadpool/include/pthreadpool.h /usr/include/
+cp deps/cpuinfo/include/cpuinfo.h /usr/include/
+cp deps/clog/include/clog.h /usr/include/
 ```
 Build darknet-nnpack
 ```
