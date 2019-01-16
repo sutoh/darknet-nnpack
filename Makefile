@@ -94,7 +94,7 @@ $(ALIB): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
 $(SLIB): $(OBJS)
-	$(CC) $(CFLAGS) -shared $^ -o $@
+	$(CC) $(CFLAGS) -shared $^ -o $@ -lstdc++
 
 $(OBJDIR)%.o: %.cpp $(DEPS)
 	$(CPP) $(COMMON) $(CFLAGS) -c $< -o $@
