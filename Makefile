@@ -63,7 +63,7 @@ endif
 ifeq ($(NNPACK), 1)
 COMMON+= -DNNPACK
 CFLAGS+= -DNNPACK
-LDFLAGS+= -lnnpack -lpthreadpool -lcpuinfo -lclog
+LDFLAGS+= -lnnpack -lpthreadpool -lcpuinfo -lclog -lstdc++
 endif
 
 ifeq ($(ARM_NEON), 1)
@@ -94,7 +94,7 @@ $(ALIB): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
 $(SLIB): $(OBJS)
-	$(CFLAGS) -shared $^ -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) -shared $^ -o $@ $(LDFLAGS)
 
 $(OBJDIR)%.o: %.cpp $(DEPS)
 	$(CPP) $(COMMON) $(CFLAGS) -c $< -o $@
