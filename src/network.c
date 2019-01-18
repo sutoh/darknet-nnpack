@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <time.h>
 #include <assert.h>
@@ -57,6 +58,10 @@ network *load_network(char *cfg, char *weights, int clear)
         load_weights(net, weights);
     }
     if(clear) (*net->seen) = 0;
+#ifdef NNPACK
+    nnp_initialize();
+    net->threadpool = pthreadpool_create(4);
+#endif
     return net;
 }
 
